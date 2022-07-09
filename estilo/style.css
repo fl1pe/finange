@@ -33,7 +33,7 @@
     font-family: Arial;
   }
   
-  .btn-add-despesa {
+  .btn-add-despesa, .btn-apagar-despesa{
     background-color: var(--primary-color);
     color: white;
     border: none;
