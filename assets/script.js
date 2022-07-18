@@ -1,50 +1,68 @@
 const container = document.querySelector(".container");
-const addDispesa = document.querySelector(".input-despesas");
-const BtnDispesa = document.querySelector("#btn-add-despesa");
-const listaDespesas = document.querySelector(".despesas");
+const nomeDespesa = document.querySelector(".nomeDespesa");
+const valorDespesa = document.querySelector(".valorDespesa");
+const tabelaDespesas = document.querySelector(".item");
+const btnAdd = document.querySelector(".btn-add");
+const valorRenda = document.querySelector(".valorRenda");
+let valorRendaConvertido = +valorRenda.innerHTML.replace(/\D+/g,'')
 
-container.addEventListener("keypress", (e) => {
-  if (!addDispesa.value) return;
-  if (e.charCode === 13) {
-    salvaDespesa(String(addDispesa.value));
+
+
+container.addEventListener("click", (e) => {
+  const el = e.target;
+  if (el.classList.contains("btn-add")) {
+    // if (!valorDespesa.value) return;
+    if (!nomeDespesa.value) return;
+    salvarDespesa(nomeDespesa.value);
   }
 });
 
 container.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-apagar-despesa")){
+  if (e.target.classList.contains("btn-apagar")) {
     e.target.parentElement.remove();
   }
 });
 
-document.addEventListener("click", (e) => {
-  const el = e.target;
-  if (el.classList.contains("btn-add-despesa")) {
-    if (!addDispesa.value) return;
-    console.log(typeof(a))
-    salvaDespesa(addDispesa.value);
+container.addEventListener('keypress', (e) => {
+  if(e.charCode === 13){
+    // if (!valorDespesa.value) return;
+    if (!nomeDespesa.value) return;
+    salvarDespesa(nomeDespesa.value);
   }
-});
 
-function capitaliza(texto) {
-  const capitalizado = texto[0].toUpperCase() + texto.substr(1);
-  return capitalizado;
-}
+})
 
 function criaElemento(tag) {
   const tagCriada = document.createElement(tag);
   return tagCriada;
 }
 
-function salvaDespesa(texto) {
-  const tag = criaElemento("ol");
-  const btnApagar = criaElemento("button");
-  tag.classList.add("nomeDespesa");
-  tag.innerText = capitaliza(texto);
-  listaDespesas.appendChild(tag);
+function limparInput() {
+  nomeDespesa.value = "";
+  valorDespesa.value = "";
+}
 
-  btnApagar.classList.add("btn-apagar-despesa");
-  btnApagar.innerText = "Apagar";
-  tag.appendChild(btnApagar);
-  addDispesa.value = "";
-  //console.log(tag);
+function salvarDespesa(texto) {
+  const tag = criaElemento("li");
+  const tagP = criaElemento("p");
+  const btnApagar = criaElemento("button");
+  const span = criaElemento("span");
+  span.innerHTML = `R$${valorDespesa.value}`
+
+  tagP.innerHTML = `${texto}: `
+  btnApagar.classList.add("btn-apagar");
+  btnApagar.innerHTML = " " + "Apagar";
+
+  tagP.appendChild(span);
+  tagP.appendChild(btnApagar);
+  tabelaDespesas.appendChild(tagP);
+  nomeDespesa.focus();
+  subTraiRenda();
+  limparInput();
+}
+
+function subTraiRenda(){
+  valorRendaConvertido -= Number(valorDespesa.value);
+  valorRenda.innerHTML = `R$ ${valorRendaConvertido}`;
+
 }

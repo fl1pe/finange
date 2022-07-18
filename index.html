@@ -1,57 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/estilo/style.css">
-  <title>Finange</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./estilo/style.css" />
+        <title>Finange</title>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <label for="">Nome:</label>
+                <input type="text" class="nomeDespesa" placeholder="Descrisão"/>
+                <label for="">Valor:</label>
+                <input type="number" class="valorDespesa" placeholder="Valor" />
+                <button class="btn-add">Add</button>
+            </div>
 
-  <section class="container">
-    <input type="text" class="input-despesas" placeholder="Adcione uma despesa">
-    <button class="btn-add-despesa">Add</button>
-    <ul class="despesas">
-    </ul>
+            <div class="container-2">
+                <div class="itens box">
+                    <h1>Itens</h1>
+                    <div class="box item">
+                      <!-- <p>item: <span>R$30</span></p>  -->
+                    </div>
+                </div>
 
-   <!-- <nav class="navigation">
-     <div class="div">
-      <h1>Finange</h1>
-      <img src="assets/img/logo-finange.svg" width="60px" alt="Logo finange">
-    </div>
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-    <span class="btn-login">Login</span>
-   </nav>
+            <div class="container-2">
+              <div class="box">
+                <h1>Renda</h1>
+                <h3 class="valorRenda">R$ 2000</h3>
+              </div>
+            </div>
+        </div>
 
-   <section class="user">
-    <h1 class="titulo">Hello World!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda delectus et quasi ut quam quidem tempora, quod magni porro minus. Quae tenetur inventore atque quis cum illum unde qui veritatis.</p>
-    <select name="months" id="months">
-      <option value="janeiro">Janeiro</option>
-      <option value="fevereiro">Fevereiro</option>
-      <option value="março" selected>Março</option>
-      <option value="abril">Abril</option>
-    </select>   
-   </section>
-
-   <section class="options">
-    <ul class="lista-options">
-      <li class="despesas">
-
-      </li>                             
-
-      <li class="renda"></li>
-      <li class="saldo"></li>
-      <li class="economia"></li> 
-    </ul>
-   </section>
-
-   <footer>&copy;Todos os direitos reservados.</footer> -->
-
-   <script src="./assets/script.js"></script>
-</body>
+        <script src="./assets/script.js"></script>
+    </body>
 </html>
